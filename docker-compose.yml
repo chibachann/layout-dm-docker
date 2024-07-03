@@ -1,0 +1,13 @@
+version: '3'
+services:
+  pytorch_env:
+    build: .
+    volumes:
+      - .:/app
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
